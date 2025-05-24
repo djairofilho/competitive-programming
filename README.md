@@ -1,5 +1,7 @@
 # Fibonacci Rápido
 
+Disponível em [Exercício Fibonacci Rápido no Neps Academy](https://neps.academy/br/exercise/1695)
+
 ## 📄 Descrição do problema
 
 Calcule o valor de Fib(N) módulo 10^9+7, onde a sequência de Fibonacci é definida por:
@@ -20,30 +22,23 @@ A solução é usar **exponenciação rápida de matrizes**.
 
 ### Matriz base da Fibonacci:
 
-\[
-A = 
-\begin{bmatrix}
-1 & 1 \\
-1 & 0
-\end{bmatrix}
-\]
+| 1 1 |  
+
+| 1 0 |
 
 Temos que:
 
-\[
-A^n = 
-\begin{bmatrix}
-Fib(n+1) & Fib(n) \\
-Fib(n) & Fib(n-1)
-\end{bmatrix}
-\]
+| Fib(n+1) Fib(n) |  
 
-Logo, para calcular Fib(N), basta calcular \(A^{N-1}\) e pegar o elemento \(A^{N-1}_{0,0} = Fib(N)\).
+| Fib(n) Fib(n-1) |
+
+Logo, para calcular Fib(N), basta calcular $A^{N-1}$ e pegar o elemento $A^{N-1}_{0,0} = Fib(N)$.
 
 ### Passos da solução:
 
-1. **Construir a matriz base \(A\)**.
-2. **Fazer a exponenciação rápida de matriz usando o método "fast exponentiation"**:
-   - Se \(e\) é o expoente, calcule \(A^e\) em \(O(\log e)\) multiplicações.
-3. **Tratar o caso especial quando N = 0**, retornando 0 diretamente.
-4. **Aplicar o módulo \(10^9 + 7\)** em todas as operações para evitar overflow.
+1. **Construir a matriz base $A$.**
+2. **Fazer a exponenciação rápida de matriz usando o método "fast exponentiation":**
+   - Se $e$ é o expoente, calcule $A^e$ em $O(\log e)$ multiplicações.
+3. **Tratar o caso especial quando $N = 0$**, retornando 0 diretamente.
+4. **Aplicar o módulo $10^9 + 7$ em todas as operações para evitar overflow.**
+
